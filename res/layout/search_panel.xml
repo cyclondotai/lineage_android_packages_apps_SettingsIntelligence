@@ -29,16 +29,18 @@
         android:paddingStart="@dimen/cyclon_search_margin"
         android:paddingEnd="@dimen/cyclon_search_margin"
         android:paddingTop="@dimen/search_bar_container_top_padding">
-        <!-- Cyclon (Words): the kit's search field, a filled pill 48dp high with no outline. -->
+        <!-- Cyclon Glass: the search field is the library's frosted search pill (glass_field: the key fill with its
+             0.5dp edge), 48dp high, with no elevation. -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/ThemeOverlay.CyclonSearchField"
-            app:cardBackgroundColor="@color/cyclon_fill"
+            app:cardBackgroundColor="@color/glass_btn"
             app:cardCornerRadius="@dimen/search_bar_corner_radius"
             app:cardElevation="0dp"
-            app:strokeWidth="0dp">
+            app:strokeColor="@color/glass_btn_edge"
+            app:strokeWidth="@dimen/glass_edge_stroke">
             <Toolbar
                 android:id="@+id/search_toolbar"
                 android:layout_width="match_parent"
@@ -70,10 +72,17 @@
         android:orientation="vertical">
 
         <!-- Padding is included in the background -->
+        <!-- Cyclon Glass: the results (or the recent searches) are one frosted card on the ground, 12dp in from the
+             screen's sides and 12dp under the search pill (the kit's .list); its rounded edge clips the rows. -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/cyclon_search_margin"
+            android:layout_marginEnd="@dimen/cyclon_search_margin"
+            android:layout_marginTop="@dimen/glass_card_margin"
+            android:background="@drawable/glass_card"
+            android:clipToOutline="true"
             android:clipToPadding="false"
             android:paddingStart="@dimen/dashboard_padding_start"
             android:paddingEnd="@dimen/dashboard_padding_end"

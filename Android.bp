@@ -36,6 +36,8 @@ android_library {
         "com.google.android.material_material",
         "SettingsLibActivityEmbedding",
         "dynamiccolors",
+        // Cyclon: the Glass look's shared values, Geist and GlassWindow (vendor/cyclon/android/ShellUi/glass)
+        "cyclon-shell-ui-glass",
     ],
     proto: {
         type: "nano",

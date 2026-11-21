@@ -1,64 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright 2026 TextGavel. Licensed under the Apache License, Version 2.0.
-     Cyclon "Words" (the UI kit's Settings page): Settings search on the kit's page colour, a filled pill search
-     field with a faint hint, then flat result rows split by faint inset lines, with ink titles and grey summaries
-     in Inter Tight (the system family "cyclon-words").
+     Cyclon Glass, as on Settings' pages: Settings search floats over the launcher's ground (Android's wallpaper; the
+     window items are on Theme.Settings), with the search field as a frosted pill and the results in one frosted card
+     (the kit's .list), rows split by hairlines, ink titles and ink-3 summaries in Geist. Every colour, drawable and
+     the font come from cyclon-shell-ui-glass (glass_*); the sizes here only place SettingsIntelligence's own views.
 -->
 <resources>
-    <!-- The kit's light colours (bg, fg, mut, faint, fill, line); the dark ones are in values-night. -->
-    <color name="cyclon_paper">#FFF5F4F0</color>
-    <color name="cyclon_ink">#FF151515</color>
-    <color name="cyclon_muted">#FF5C5C5C</color>
-    <color name="cyclon_faint">#FFA3A3A3</color>
-    <color name="cyclon_fill">#FFE9E8E4</color>
-    <color name="cyclon_hairline">#FFDFDEDA</color>
-
     <dimen name="cyclon_hairline">1dp</dimen>
-    <!-- The kit's edge inset (.rows, .search: 28px in its 390px frame), as on Settings' pages. -->
-    <dimen name="cyclon_row_padding_horizontal">28dp</dimen>
+    <!-- Inside the results card a row's words start 16dp in (glass_row_padding), 28dp from the screen's side with the
+         card's 12dp (glass_list_margin), on the same edge as Settings' rows. -->
+    <dimen name="cyclon_row_padding_horizontal">@dimen/glass_row_padding</dimen>
     <dimen name="cyclon_row_padding_vertical">15dp</dimen>
     <dimen name="cyclon_row_gap">16dp</dimen>
     <dimen name="cyclon_icon_size">20dp</dimen>
-    <!-- The field's edges line up with the rows' text, as the kit's search pill lines up with its rows. -->
-    <dimen name="cyclon_search_margin">28dp</dimen>
+    <!-- The search pill and the results card sit 12dp in from the screen's sides (glass_list_margin), as Settings'
+         cards and its search pill do. -->
+    <dimen name="cyclon_search_margin">@dimen/glass_list_margin</dimen>
 
+    <!-- A result's title (components.css .row .t1): Geist 17sp regular, tracked -0.01em, in ink. -->
     <style name="TextAppearance.CyclonSearchTitle" parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">cyclon-words</item>
+        <item name="android:fontFamily">@font/glass_geist</item>
         <item name="android:textFontWeight">400</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:letterSpacing">-0.01</item>
-        <item name="android:textColor">@color/cyclon_ink</item>
+        <item name="android:textColor">@color/glass_ink</item>
     </style>
 
+    <!-- A result's summary (.row .t2): Geist 14sp regular in ink-3. -->
     <style name="TextAppearance.CyclonSearchSummary" parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">cyclon-words</item>
+        <item name="android:fontFamily">@font/glass_geist</item>
         <item name="android:textFontWeight">400</item>
-        <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/cyclon_muted</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/glass_ink_3</item>
     </style>
 
     <style name="TextAppearance.CyclonSearchBreadcrumb" parent="@style/TextAppearance.CyclonSearchSummary">
         <item name="android:textSize">12sp</item>
     </style>
 
-    <!-- The query in the search pill: 16sp ink, the hint faint. -->
+    <!-- The query in the search pill: Geist 17sp in ink, the hint in ink-3 (Settings home's pill, .search .ph). -->
     <style name="TextAppearance.CyclonSearchQuery" parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">cyclon-words</item>
+        <item name="android:fontFamily">@font/glass_geist</item>
         <item name="android:textFontWeight">400</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/cyclon_ink</item>
-        <item name="android:textColorHint">@color/cyclon_faint</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@color/glass_ink</item>
+        <item name="android:textColorHint">@color/glass_ink_3</item>
     </style>
 
-    <!-- The search field's theme: Material Components for the card, with the kit's type and colours for the
-         SearchView inside it (its query field takes textAppearanceMediumInverse, editTextColor and the theme's
-         hint colour). -->
+    <!-- The search field's theme: Material Components for the card, with Glass type and colours for the SearchView
+         inside it (its query field takes textAppearanceMediumInverse, editTextColor and the theme's hint colour). The
+         cursor and selection handles are ink (colorControlActivated), never the system accent. -->
     <style name="ThemeOverlay.CyclonSearchField" parent="@style/Theme.MaterialComponents.DayNight">
-        <item name="android:fontFamily">cyclon-words</item>
+        <item name="android:fontFamily">@font/glass_geist</item>
         <item name="android:textAppearanceMediumInverse">@style/TextAppearance.CyclonSearchQuery</item>
-        <item name="android:editTextColor">@color/cyclon_ink</item>
-        <item name="android:textColorHint">@color/cyclon_faint</item>
-        <item name="android:colorControlNormal">@color/cyclon_muted</item>
+        <item name="android:editTextColor">@color/glass_ink</item>
+        <item name="android:textColorHint">@color/glass_ink_3</item>
+        <item name="android:colorControlNormal">@color/glass_ink_3</item>
+        <item name="android:colorControlActivated">@color/glass_ink</item>
+        <item name="android:colorAccent">@color/glass_ink</item>
+        <item name="colorPrimary">@color/glass_ink</item>
+        <item name="colorSecondary">@color/glass_ink</item>
     </style>
 </resources>

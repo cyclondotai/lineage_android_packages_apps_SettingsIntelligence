@@ -31,11 +31,16 @@ import androidx.fragment.app.FragmentManager;
 
 import com.android.settings.intelligence.R;
 
+import ai.cyclon.shellui.glass.GlassWindow;
+
 public class SearchActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Cyclon Glass, as on Settings' pages: search floats over the launcher's ground, Android's
+        // wallpaper, on an opaque window that shows it (cyclon-shell-ui-glass; Theme.Settings).
+        GlassWindow.install(this);
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.search_main);

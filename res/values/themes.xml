@@ -21,11 +21,24 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:navigationBarDividerColor">@android:color/transparent</item>
-        <!-- Cyclon (Words): the page is the kit's page colour like Settings, not DeviceDefault's grey, and
-             every text is Inter Tight (the system family "cyclon-words"). -->
-        <item name="android:colorBackground">@color/cyclon_paper</item>
-        <item name="android:windowBackground">@color/cyclon_paper</item>
-        <item name="android:fontFamily">cyclon-words</item>
+        <!-- Cyclon Glass, as on Settings' pages: search floats over the launcher's ground, Android's wallpaper, on
+             an opaque window that shows it (cyclon-shell-ui-glass's window items; SearchActivity calls
+             GlassWindow.install), every text is Geist in the Glass ink, and the cursor and other activated
+             controls are ink instead of the system accent. -->
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:windowLightStatusBar">@bool/glass_light</item>
+        <item name="android:windowLightNavigationBar">@bool/glass_light</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/glass_geist</item>
+        <item name="android:textColorPrimary">@color/glass_ink</item>
+        <item name="android:textColorSecondary">@color/glass_ink_3</item>
+        <item name="android:colorAccent">@color/glass_ink</item>
+        <item name="android:colorControlActivated">@color/glass_ink</item>
     </style>
 
     <style name="Theme.Settings.NoActionBar">

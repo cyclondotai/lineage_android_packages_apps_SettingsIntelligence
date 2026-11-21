@@ -80,6 +80,9 @@ public abstract class SearchViewHolder extends RecyclerView.ViewHolder {
             // Valid even when result.icon is null.
             iconView.setImageDrawable(result.icon);
         }
+        // Cyclon: a result without an icon starts its words at the row's edge, as Settings' rows
+        // do, instead of after an empty icon column.
+        iconView.setVisibility(iconView.getDrawable() == null ? View.GONE : View.VISIBLE);
 
         bindBreadcrumbView(result);
     }
